@@ -1,4 +1,4 @@
-type Appointment = {
+type Task = {
   id: number
   startDate: Date
   endDate: Date
@@ -7,4 +7,6 @@ type Appointment = {
   category: string
 }
 
-export type {Appointment}
+type State<T> = [T, React.Dispatch<React.SetStateAction<T>>]
+
+export type {Task, State}
