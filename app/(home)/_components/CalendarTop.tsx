@@ -47,7 +47,7 @@ export default function CalendarTop({
       <button
         onClick={() =>
           setDisplayMonth(
-            new Date(displayMonth.setMonth(displayMonth.getMonth() - 1)),
+            new Date(new Date().getFullYear(), new Date().getMonth()),
           )
         }
         type="button"
