@@ -5,10 +5,10 @@ import { Task } from "@/types";
 import TaskDisplay from "./TaskDisplay";
 
 export default function Menu({
-  date,
+  selectedDayState: [date, setDate],
   tasksState,
 }: {
-  date: Date;
+  selectedDayState: State<Date>;
   tasksState: State<Task[]>;
 }) {
   return (

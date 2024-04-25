@@ -6,9 +6,9 @@ import {
 } from "@radix-ui/react-icons";
 
 export default function CalendarTop({
-  displayMonthState: [displayMonth, setDisplayMonth],
+  selectedDayState: [selectedDay, setSelectedDay],
 }: {
-  displayMonthState: [Date, (date: Date) => void];
+  selectedDayState: [Date, (date: Date) => void];
 }) {
   return (
     <div className="flex w-full justify-between p-5 text-3xl font-black text-tertiary">
@@ -20,22 +20,20 @@ export default function CalendarTop({
       <div className="flex items-center justify-center gap-5">
         <button
           onClick={() =>
-            setDisplayMonth(
-              new Date(displayMonth.setMonth(displayMonth.getMonth() - 1)),
+            setSelectedDay(
+              new Date(selectedDay.setMonth(selectedDay.getMonth() - 1)),
             )
           }
           type="button"
         >
           <ChevronLeftIcon className="size-6" />
         </button>
-        {displayMonth
-          .toLocaleDateString("en-GB", { month: "long" })
-          .toUpperCase()}{" "}
-        {displayMonth.getFullYear()}
+        {selectedDay.toLocaleString("default", { month: "long" })}{" "}
+        {selectedDay.getFullYear()}
         <button
           onClick={() =>
-            setDisplayMonth(
-              new Date(displayMonth.setMonth(displayMonth.getMonth() + 1)),
+            setSelectedDay(
+              new Date(selectedDay.setMonth(selectedDay.getMonth() + 1)),
             )
           }
           type="button"
@@ -46,8 +44,8 @@ export default function CalendarTop({
 
       <button
         onClick={() =>
-          setDisplayMonth(
-            new Date(new Date().getFullYear(), new Date().getMonth()),
+          setSelectedDay(
+            new Date(new Date()),
           )
         }
         type="button"
