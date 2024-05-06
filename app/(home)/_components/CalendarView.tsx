@@ -29,6 +29,44 @@ export default function CalendarView({
               selected={selectedDay.toDateString() === d.toDateString()}
               thisMonth={d.getMonth() === selectedDay.getMonth()}
               onClick={() => setSelectedDay(d)}
+              tasks={[
+                {
+                  id: 123,
+                  startDate: d,
+                  endDate: d,
+                  title: "Title",
+                  description: "Desc",
+                  category: "string",
+                  color: "black",
+                },
+                {
+                  id: 123,
+                  startDate: d,
+                  endDate: d,
+                  title: "Title",
+                  description: "Desc",
+                  category: "string",
+                  color: "lime",
+                },
+                {
+                  id: 123,
+                  startDate: d,
+                  endDate: d,
+                  title: "Title",
+                  description: "Desc",
+                  category: "string",
+                  color: "red",
+                },
+                {
+                  id: 123,
+                  startDate: d,
+                  endDate: d,
+                  title: "Title",
+                  description: "Desc",
+                  category: "string",
+                  color: "black",
+                },
+              ]}
             />
           );
         })}
