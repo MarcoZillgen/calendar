@@ -5,6 +5,7 @@ type Task = {
   title: string
   description: string
   category: string
+  color: string
 }
 
 type State<T> = [T, React.Dispatch<React.SetStateAction<T>>]
