@@ -31,7 +31,19 @@ export default function Day({
         {num < 10 ? `0${num}` : num}
       </span>
       {!today && !selected && (
-        <div className="absolute bottom-0 left-0 h-3 w-full rounded-full bg-secondary"></div>
+        <div className="absolute bottom-0 left-0 flex h-3 w-full gap-1 overflow-hidden">
+          <div className="min-w-0 w-full rounded-full bg-secondary"></div>
+
+          {tasks.map((task: Task, i) => {
+            return (
+              <div
+                key={i}
+                className="min-w-3 w-5 rounded-full"
+                style={{ backgroundColor: task.color }}
+              ></div>
+            );
+          })}
+        </div>
       )}
     </div>
   );
