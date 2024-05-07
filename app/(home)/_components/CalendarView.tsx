@@ -13,8 +13,19 @@ export default function CalendarView({
 
       <div
         className="grid h-full grid-cols-7 grid-rows-5 place-items-center"
-        onScroll={(e: React.WheelEvent<HTMLDivElement>) => {
-          // TODO: Scroll to next month
+        onWheel={(e: React.WheelEvent<HTMLDivElement>) => {
+          if (e.deltaY < 0)
+            setSelectedDay((prev) => {
+              const d = new Date(prev);
+              d.setMonth(d.getMonth() - 1);
+              return d;
+            });
+          else
+            setSelectedDay((prev) => {
+              const d = new Date(prev);
+              d.setMonth(d.getMonth() + 1);
+              return d;
+            });
         }}
       >
         {Array.from({ length: 35 }, (_, i) => {
